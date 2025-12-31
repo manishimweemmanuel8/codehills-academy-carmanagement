@@ -107,7 +107,7 @@ The CLI module is a **separate executable** (different main class) that:
 
 ```bash
 git clone <repository-url>
-cd codehills-techinical
+cd codehills-academy-carmanagement
 ```
 
 ### Step 2: Build the Project
