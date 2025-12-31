@@ -101,7 +101,7 @@ The CLI module is a **separate executable** (different main class) that:
 - **JUnit 5**: Unit testing framework
 - **Maven**: Build and dependency management
 
-## Project Structure
+## Quick Start
 
 ### Step 1: Clone the Repository
 
@@ -247,15 +247,14 @@ codehills-techinical/
             └── ApiClient.java
 ```
 
-## Quick Start
+## API Endpoints
 
-| Method | Endpoint | Description | Request Body |
-|--------|----------|-------------|--------------|
-| POST | `/api/cars` | Create a new car | `{"brand": "...", "model": "...", "year": ...}` |
-| GET | `/api/cars` | List all cars | - |
-| POST | `/api/cars/{id}/fuel` | Add a fuel entry | `{"liters": ..., "price": ..., "odometer": ...}` |
-| GET | `/api/cars/{id}/fuel/stats` | Get fuel statistics | - |
-| GET | `/servlet/fuel-stats?carId={id}` | Manual servlet (same as above) | - |
+| Action | Method | Endpoint | Fields |
+|--------|--------|----------|--------|
+| Create Car | POST | `/api/cars` | `brand`, `model`, `year` |
+| List Cars | GET | `/api/cars` | N/A |
+| Add Fuel | POST | `/api/cars/{id}/fuel` | `liters`, `price`, `odometer` |
+| Get Stats | GET | `/api/cars/{id}/fuel/stats` | Returns total fuel, cost, and avg/100km |
 
 ### API Examples
 
@@ -341,15 +340,6 @@ codehills-techinical/
   "entryCount": 3
 }
 ```
-
-## API Endpoints
-
-| Action | Method | Endpoint | Fields |
-|--------|--------|----------|--------|
-| Create Car | POST | `/api/cars` | `brand`, `model`, `year` |
-| List Cars | GET | `/api/cars` | N/A |
-| Add Fuel | POST | `/api/cars/{id}/fuel` | `liters`, `price`, `odometer` |
-| Get Stats | GET | `/api/cars/{id}/fuel/stats` | Returns total fuel, cost, and avg/100km |
 
 ## CLI Commands
 
