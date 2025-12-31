@@ -205,7 +205,6 @@ Average consumption: 8.7 L/100km
 ## Project Structure
 
 ```
-```
 codehills-techinical/
 ├── pom.xml                    # Parent Maven POM
 ├── README.md
@@ -258,9 +257,20 @@ codehills-techinical/
 | GET | `/api/cars/{id}/fuel/stats` | Get fuel statistics | - |
 | GET | `/servlet/fuel-stats?carId={id}` | Manual servlet (same as above) | - |
 
-### Example API Responses
+### API Examples
 
-**Create Car (POST /api/cars):**
+#### 1. Create Car (POST /api/cars)
+
+**Request:**
+```json
+{
+  "brand": "Toyota",
+  "model": "Corolla",
+  "year": 2018
+}
+```
+
+**Response (201 Created):**
 ```json
 {
   "id": 1,
@@ -271,7 +281,11 @@ codehills-techinical/
 }
 ```
 
-**List Cars (GET /api/cars):**
+#### 2. List Cars (GET /api/cars)
+
+**Request:** No request body required
+
+**Response (200 OK):**
 ```json
 [
   {
@@ -280,11 +294,45 @@ codehills-techinical/
     "model": "Corolla",
     "year": 2018,
     "createdAt": "Dec 29, 2025 08:30 PM"
+  },
+  {
+    "id": 2,
+    "brand": "Honda",
+    "model": "Civic",
+    "year": 2020,
+    "createdAt": "Dec 29, 2025 09:15 PM"
   }
 ]
 ```
 
-**Get Fuel Stats (GET /api/cars/1/fuel/stats):**
+#### 3. Add Fuel Entry (POST /api/cars/{id}/fuel)
+
+**Request:**
+```json
+{
+  "liters": 40.0,
+  "price": 50.0,
+  "odometer": 40000
+}
+```
+
+**Response (201 Created):**
+```json
+{
+  "id": 1,
+  "carId": 1,
+  "liters": 40.0,
+  "price": 50.0,
+  "odometer": 40000,
+  "createdAt": "Dec 29, 2025 08:45 PM"
+}
+```
+
+#### 4. Get Fuel Statistics (GET /api/cars/{id}/fuel/stats)
+
+**Request:** No request body required
+
+**Response (200 OK):**
 ```json
 {
   "totalFuel": 127.0,
@@ -293,6 +341,15 @@ codehills-techinical/
   "entryCount": 3
 }
 ```
+
+## API Endpoints
+
+| Action | Method | Endpoint | Fields |
+|--------|--------|----------|--------|
+| Create Car | POST | `/api/cars` | `brand`, `model`, `year` |
+| List Cars | GET | `/api/cars` | N/A |
+| Add Fuel | POST | `/api/cars/{id}/fuel` | `liters`, `price`, `odometer` |
+| Get Stats | GET | `/api/cars/{id}/fuel/stats` | Returns total fuel, cost, and avg/100km |
 
 ## CLI Commands
 
