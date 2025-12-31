@@ -55,7 +55,7 @@ The system consists of two main components:
 
 ### Framework Choice
 
-While the assignment mentions Spring Boot, this implementation uses **pure Java Servlets** with embedded Jetty to demonstrate:
+This implementation uses **pure Java Servlets** with embedded Jetty to demonstrate:
 - Direct servlet lifecycle management
 - Manual HTTP request/response handling
 - Explicit servlet configuration
